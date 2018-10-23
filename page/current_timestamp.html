@@ -1,0 +1,15 @@
+<h1>Current time</h1>
+<p id="current_time_in_millis"></p>
+<script>
+$(document).ready(function() {
+    getLocation();
+});
+
+function getLocation() {
+	var timeStampInMs = window.performance && window.performance.now && window.performance.timing && window.performance.timing.navigationStart ? window.performance.now() + window.performance.timing.navigationStart : Date.now();
+
+	console.log(timeStampInMs, Date.now());	
+	$("#current_time_in_millis").text(timeStampInMs);
+}
+
+</script>

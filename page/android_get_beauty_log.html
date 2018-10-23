@@ -1,0 +1,31 @@
+<h1>Beautiful Log</h1>
+<h1></h1>
+<textarea class="form-control" rows="15" id="log"></textarea>
+<input class="form-control input-lg" type="text" id="text_rule" style="margin-top: 20px" placeholder="rule">
+<button type="button" class="btn btn-default" id="button_format" style="margin-top: 20px">Format</button>
+<button type="button" class="btn btn-default" id="button_reset" style="margin-top: 20px">Reset</button>
+
+<h4 id="result" style="margin-top: 30px"></h4>
+
+<script type="text/javascript">
+
+$('#button_format').click(function(){
+      var rule = $('#text_rule').val();
+      var log = $('#log').val();
+
+	  var lines = log.split('\n');
+      for(var i = 0;i < lines.length;i++){
+          var line = lines[i];
+          var startValue = line.indexOf(rule);
+          var formatedValue = line.substring(startValue+rule.length);
+
+    	  $("#result").append(formatedValue + "<br/>");
+	  }
+	  	
+      console.log(log);
+});
+$('#button_reset').click(function(){
+	 console.log("click reset");
+	$("#result").html("");
+});
+</script>

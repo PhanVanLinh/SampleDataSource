@@ -1,0 +1,54 @@
+<h1> Simple Customer Log </h1>
+<h1></h1>
+<textarea class="form-control" rows="15" id="log"></textarea>
+
+<input class="form-control input-lg" type="text" id="text_start" style="margin-top: 20px" placeholder="from">
+<input class="form-control input-lg" type="text" id="text_end" style="margin-top: 20px" placeholder="to">
+
+<input class="form-control input-lg" type="text" id="text_apend_start" style="margin-top: 20px" placeholder="append from">
+<input class="form-control input-lg" type="text" id="text_apend_end" style="margin-top: 20px" placeholder="append to">
+
+<button type="button" class="btn btn-default" id="button_format" style="margin-top: 20px">Format</button>
+<button type="button" class="btn btn-default" id="button_reset" style="margin-top: 20px">Reset</button>
+<button type="button" class="btn btn-default" id="button_continue" style="margin-top: 20px">Continue</button>
+
+<h5 id="result" style="margin-top: 30px"></h5>
+
+<script type="text/javascript">
+
+  $('#button_format').click(function () {
+    console.log("click format");
+    var textStart = $('#text_start').val();
+    var textEnd = $('#text_end').val();
+
+    var startPrefix = $('#text_apend_start').val();
+    var endPrefix = $('#text_apend_end').val();
+    if(textStart == "" || textStart == ""){
+      return;
+    }
+
+    var log = $('#log').val();
+    console.log(log);
+    // var regex = /start\s*(.*?)\s*end/g;
+    var regex_text = textStart + "(.*)" + textEnd;
+    var regex = new RegExp(regex_text, "g");
+    var lines = [];
+    while (m = regex.exec(log)) {
+      lines.push(m[1]);
+    }
+
+    for (var i = 0; i < lines.length; i++) {
+      $("#result").append(startPrefix + lines[i] + endPrefix + "<br/>");
+    }
+    console.log("done");
+  });
+  $('#button_reset').click(function () {
+    console.log("click reset");
+    $("#result").html("");
+  });
+  $('#button_continue').click(function () {
+    console.log("click continue: " + $("#result").text());
+    $('#log').val($("#result").text());
+    $("#result").html("");
+  });
+</script>

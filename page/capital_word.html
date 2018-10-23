@@ -1,0 +1,14 @@
+<h1>Change</h1>
+<h1></h1>
+<textarea class="form-control" rows="15" id="text"></textarea>
+
+<h4 id="result" style="margin-top: 30px"></h4>
+
+<script type="text/javascript">
+
+$('#text').on('input',function(e){
+  var str = $('#text').val().toLowerCase();
+  str = str.toUpperCase();
+  $('#result').text(str);
+});
+</script>

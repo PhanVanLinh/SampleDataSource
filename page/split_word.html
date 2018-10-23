@@ -1,0 +1,26 @@
+<div style="white-space: pre-line;">
+<h1>Change</h1>
+<h1></h1>
+<textarea class="form-control" rows="15" id="text"></textarea>
+<input type="text" class="form-control input-lg" id="split_character" style="margin-top: 20px" placeholder="Split charater">
+<button type="button" class="btn btn-default" id="button_split" style="margin-top: 20px">Split</button>
+
+<h4 id="result" style="margin-top: 30px"></h4>
+</div>
+<script type="text/javascript">
+$('#button_split').click(function(){
+  var str = $('#text').val();
+  var splitWord = $('#split_character').val();
+
+  var words = str.split(splitWord);
+  var result = "";
+  for (var i = 0; i < words.length; i++) {
+    result += words[i] + "\n";
+  }
+  $('#result').text(result);
+});
+
+$('#text').on('input',function(e){
+  
+});
+</script>

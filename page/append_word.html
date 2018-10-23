@@ -1,0 +1,37 @@
+<div style="white-space: pre-line;">
+<textarea class="form-control" rows="15" id="text"></textarea>
+<input type="text" class="form-control input-lg" id="append_string" style="margin-top: 20px" placeholder="Append charater">
+<form>
+<div class="radio">
+  <label><input type="radio" id="radio1" name="appendToRadio" value="left" checked="checked" >Left</label>
+  <label><input type="radio" id="radio2" name="appendToRadio" value="right">Right</label>
+</div>
+</form>
+<button type="button" class="btn btn-default" id="button_append" style="margin-top: 20px">Append</button>
+
+<h4 id="result" style="margin-top: 30px"></h4>
+</div>
+
+<script type="text/javascript">
+$('#button_append').click(function(){
+  var str = $('#text').val();
+  var appendString = $('#append_string').val();
+  var appendTo = $("input[name='appendToRadio']:checked").val();
+
+  var result = "";
+  var lines = str.split('\n');
+  for(var i = 0;i < lines.length;i++){
+  	if(appendTo == 'left'){
+	     result += appendString + lines[i] +"\n";
+    }else{
+       result += lines[i] + appendString +"\n";
+    }
+  }
+
+  $('#result').text(result);
+});
+
+$('#text').on('input',function(e){
+  
+});
+</script>

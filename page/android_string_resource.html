@@ -1,0 +1,28 @@
+<h1>Change</h1>
+<h1></h1>
+<input class="form-control input-lg" type="text" id="text" style="margin-top: 200px" placeholder="name">
+<input class="form-control input-lg" type="text" id="value" style="margin-top: 20px" placeholder="value">
+<h3 id="result" style="margin-top: 30px"></h3>
+<h3 id="result2"></h3>
+<script type="text/javascript">
+$('#text').on('input',function(e){
+	var str = $('#text').val().toLowerCase();
+	var replaced = str.replace(/[^a-zA-Z0-9 ]/g, '');
+	replaced = replaced.replace(/  /g, ' ');
+	replaced = replaced.replace(/ /g, '_');;
+	
+	var value = $('#value').val();
+
+    $('#result').text(replaced);
+    $('#result2').text('<string name="'+replaced+'">'+value+'</string>');
+});
+
+$('#text').click(function(){
+      $('#text').val("");
+});
+
+$('#value').click(function(){
+      $('#value').val("");
+});
+
+</script>

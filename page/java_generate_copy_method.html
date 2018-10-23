@@ -1,0 +1,19 @@
+<div style="white-space: pre-line;">
+<textarea class="form-control" rows="15" id="text"></textarea>
+<button type="button" class="btn btn-default" id="button_generate" style="margin-top: 20px">Generate</button>
+<h4 id="result" style="margin-top: 30px"></h4>
+</div>
+
+<script type="text/javascript">
+$('#button_generate').click(function(){
+  var str = $('#text').val();
+ 
+  var lines = str.split('\n');
+  for(var i = 0;i < lines.length;i++){
+  	  lines[i];
+  }
+
+  $('#result').text(result);
+});
+
+</script>
